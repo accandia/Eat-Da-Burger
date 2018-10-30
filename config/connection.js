@@ -2,7 +2,7 @@
 var mysql = require('mysql');
 var connection;
 
-// For Heroku Deployment vs. Local MySQL Database
+//Heroku Deployment else Local MySQL Database
 if(process.env.JAWSDB_URL){
   connection = mysql.createConnection(process.env.JAWSDB_URL);
 }
@@ -14,7 +14,6 @@ else{
     database : 'burgers_db' // Add your database
   });
 }
-
 
 // Export the Connection
 module.exports = connection;

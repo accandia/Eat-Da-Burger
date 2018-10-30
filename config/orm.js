@@ -1,7 +1,7 @@
 // Import Node Dependencies
 var connection = require('./connection.js');
 
-// Connect to MySQL database
+//Connection to MySQL database
 connection.connect(function(err) {
   if (err) {
     console.error('error connecting: ' + err.stack);
@@ -12,17 +12,21 @@ connection.connect(function(err) {
 
 // Methods for MySQL commands
 var orm = {
+
   // selectAll()
   selectAll: function(callback) {
+
     // Run MySQL Query
     connection.query('SELECT * FROM burgers', function (err, result) {
       if (err) throw err;
       callback(result);
     });
+
   },
 
   // insertOne()
   insertOne: function(burger_name, callback){
+
     // Create a new timestamp
     // ----------------------------------------------------------
     var d = new Date();
@@ -68,6 +72,7 @@ var orm = {
       if (err) throw err;
       callback(result);
     });
+
   },
 
   // updateOne()
@@ -78,7 +83,9 @@ var orm = {
         if (err) throw err;
         callback(result);
       });
+
   }
+
 };
 
 // Export the ORM object in module.exports.
